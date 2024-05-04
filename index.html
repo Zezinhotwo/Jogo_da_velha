@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tabu {
+        height: 50%;
+        width: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+      }
+      .i {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabu">
+      <div data-indice="0" class="i"></div>
+      <div data-indice="1" class="i"></div>
+      <div data-indice="2" class="i"></div>
+      <div data-indice="3" class="i"></div>
+      <div data-indice="4" class="i"></div>
+      <div data-indice="5" class="i"></div>
+      <div data-indice="6" class="i"></div>
+      <div data-indice="7" class="i"></div>
+      <div data-indice="8" class="i"></div>
+    </div>
+    <script type="module" src="domManipulation.js"></script>
+  </body>
+</html>
