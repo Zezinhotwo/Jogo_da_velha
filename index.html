@@ -11,13 +11,15 @@
         margin: 0;
       }
       body {
-        height: 90vh;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        justify-content: space-around;
+        flex-direction: column;
       }
       .tabu {
-        height: 50%;
+        height: 80%;
         width: 50%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -25,21 +27,51 @@
       }
       .i {
         border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .i:hover{
+        background-color: rgb(190, 184, 184);
+        transition: 300ms;
+      }
+     
+      .bola::after {
+        position: absolute;
+        font-size: 8em;
+        content: "\1F535";
+      }
+      
+      .xis::after {
+        position: absolute;
+        margin: auto;
+        content: "\274c"; /* use the hex value here... */
+        font-size: 8em;
+      }
+      button {
+        height: 3em;
+        width: 10em;
+        border: .5px solid black;
+        border-radius: 20px;
+        font-size: 1em;
+        font-weight:bolder;
       }
     </style>
   </head>
   <body>
     <div class="tabu">
-      <div data-indice="0" class="i"></div>
-      <div data-indice="1" class="i"></div>
-      <div data-indice="2" class="i"></div>
-      <div data-indice="3" class="i"></div>
-      <div data-indice="4" class="i"></div>
-      <div data-indice="5" class="i"></div>
-      <div data-indice="6" class="i"></div>
-      <div data-indice="7" class="i"></div>
-      <div data-indice="8" class="i"></div>
+      <div data-linha="0" data-coluna="0" class="i"></div>
+      <div data-linha="0" data-coluna="1" class="i"></div>
+      <div data-linha="0" data-coluna="2" class="i"></div>
+      <div data-linha="1" data-coluna="0" class="i"></div>
+      <div data-linha="1" data-coluna="1" class="i"></div>
+      <div data-linha="1" data-coluna="2" class="i"></div>
+      <div data-linha="2" data-coluna="0" class="i"></div>
+      <div data-linha="2" data-coluna="1" class="i"></div>
+      <div data-linha="2" data-coluna="2" class="i"></div>
     </div>
+    <button>reset</button>
+
     <script type="module" src="domManipulation.js"></script>
   </body>
 </html>

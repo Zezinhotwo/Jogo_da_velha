@@ -1,14 +1,36 @@
 import Gameboard from './index.js';
 
+const jogo = Gameboard();
 
-const jogo = Gameboard()
+const quadrados = document.querySelectorAll('.i');
 
-const kaio = document.querySelectorAll('.i')
-kaio.forEach((kaio) => {
-    kaio.addEventListener('click', (e) => {
-        e.target.style.background = 'red';
-        console.log(kaio.dataset.indice)
-    })
-})
+quadrados.forEach((quadrado) => {
+    quadrado.addEventListener('click', (e) => {
+        const quadradoLinha = Number(quadrado.dataset.linha);
+        const quadradoColuna = Number(quadrado.dataset.coluna);
+        // const jogador = jogo.quadro % 2 === 0 ? 0 : 1; // Alternar entre jogadores X e O
+        const resultado = jogo.jogar(quadradoLinha, quadradoColuna);
 
-console.log(jogo.quadro)
+        if (resultado === "X") {
+            // e.target.style.background = 'red';
+            e.target.classList.add("xis");
+        } else if (resultado === "O") {
+            // e.target.style.background = 'blue';
+            e.target.classList.add("bola");
+        }
+
+        console.log(resultado); // Imprimir o resultado do jogo no console
+
+        // Incrementar o número do quadrado após cada jogada
+        jogo.quadro++;
+
+        // Verificar se o jogo terminou e tomar as medidas necessárias, se aplicável
+        // Exemplo: exibir uma mensagem de vitória, desabilitar a interação com os quadrados, etc.
+    });
+});
+
+const botaoReset = document.querySelector('button');
+
+botaoReset.addEventListener('click', () => {
+    window.location.reload();
+});

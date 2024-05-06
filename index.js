@@ -21,7 +21,7 @@ export default function Gameboard() {
             quadro[i][j] = null;
         }
     }
-    
+
     const player = ["X", "O"];
 
     const jogar = function (l, c) {
@@ -36,7 +36,7 @@ export default function Gameboard() {
         const marcar = quadro[l][c] = player[0];
         const vencedor = verificarVencedor(quadro); // Verificar se há um vencedor
         if (vencedor) {
-            console.log(`O jogador ${vencedor} venceu!`);
+            console.log(`O jogador ${vencedor}`);
         }
         imprimirTabuleiro();
         player.push(player.shift()); // Alternando entre os jogadores
@@ -44,32 +44,50 @@ export default function Gameboard() {
     };
 
     const verificarVencedor = function (quadro) {
+        // Verificar se houve um vencedor
         for (let i = 0; i < 3; i++) {
             if (quadro[i][0] === quadro[i][1] && quadro[i][1] === quadro[i][2] && quadro[i][0] !== null) {
                 return quadro[i][0]; // Retornar o vencedor
             }
         }
-    
+
         // Verificar colunas
         for (let j = 0; j < 3; j++) {
             if (quadro[0][j] === quadro[1][j] && quadro[1][j] === quadro[2][j] && quadro[0][j] !== null) {
                 return quadro[0][j]; // Retornar o vencedor
             }
         }
-    
+
         // Verificar diagonal principal
         if (quadro[0][0] === quadro[1][1] && quadro[1][1] === quadro[2][2] && quadro[0][0] !== null) {
             return quadro[0][0]; // Retornar o vencedor
         }
-    
+
         // Verificar diagonal secundária
         if (quadro[0][2] === quadro[1][1] && quadro[1][1] === quadro[2][0] && quadro[0][2] !== null) {
             return quadro[0][2]; // Retornar o vencedor
         }
-    
+
+        // Verificar se todas as posições do tabuleiro estão preenchidas (empate)
+        let tabuleiroCompleto = true;
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (quadro[i][j] === null) {
+                    tabuleiroCompleto = false;
+                    break;
+                }
+            }
+            if (!tabuleiroCompleto) {
+                break;
+            }
+        }
+        if (tabuleiroCompleto) {
+            return "empate"; // Retornar "empate" se todas as posições estiverem preenchidas e não houver vencedor
+        }
+
         return null; // Nenhum vencedor encontrado
-    
     };
+    
     const imprimirTabuleiro = function () {
         console.log('Tabuleiro atual:');
         for (let i = 0; i < linha; i++) {
