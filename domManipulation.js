@@ -8,7 +8,6 @@ quadrados.forEach((quadrado) => {
     quadrado.addEventListener('click', (e) => {
         const quadradoLinha = Number(quadrado.dataset.linha);
         const quadradoColuna = Number(quadrado.dataset.coluna);
-        // const jogador = jogo.quadro % 2 === 0 ? 0 : 1; // Alternar entre jogadores X e O
         const resultado = jogo.jogar(quadradoLinha, quadradoColuna);
 
         if (resultado === "X") {

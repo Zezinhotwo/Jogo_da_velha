@@ -1,0 +1,63 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.ganhador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.resu {
+    padding-left: 5px;
+    color: green;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2em;
+}
+.game {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.tabu {
+    height: 60%;
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.i {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.i:hover {
+    background-color: rgb(190, 184, 184);
+    transition: 300ms;
+}
+
+.bola::after {
+    position: absolute;
+    font-size: 5em;
+    content: "\1F535";
+}
+
+.xis::after {
+    position: absolute;
+    margin: auto;
+    content: "\274c"; /* use the hex value here... */
+    font-size: 5em;
+}
+button {
+    height: 3em;
+    width: 10em;
+    border: 0.5px solid black;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: bolder;
+}

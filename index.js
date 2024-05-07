@@ -35,8 +35,11 @@ export default function Gameboard() {
 
         const marcar = quadro[l][c] = player[0];
         const vencedor = verificarVencedor(quadro); // Verificar se há um vencedor
+        const ganhador = document.querySelector('.resu');
         if (vencedor) {
-            console.log(`O jogador ${vencedor}`);
+            console.log(`O jogado Deu ${vencedor}`);
+            ganhador.innerHTML = `<strong>${vencedor}</strong>`
+            return true;
         }
         imprimirTabuleiro();
         player.push(player.shift()); // Alternando entre os jogadores
@@ -54,18 +57,18 @@ export default function Gameboard() {
         // Verificar colunas
         for (let j = 0; j < 3; j++) {
             if (quadro[0][j] === quadro[1][j] && quadro[1][j] === quadro[2][j] && quadro[0][j] !== null) {
-                return quadro[0][j]; // Retornar o vencedor
+                return quadro[0][j];
             }
         }
 
         // Verificar diagonal principal
         if (quadro[0][0] === quadro[1][1] && quadro[1][1] === quadro[2][2] && quadro[0][0] !== null) {
-            return quadro[0][0]; // Retornar o vencedor
+            return quadro[0][0]; 
         }
 
         // Verificar diagonal secundária
         if (quadro[0][2] === quadro[1][1] && quadro[1][1] === quadro[2][0] && quadro[0][2] !== null) {
-            return quadro[0][2]; // Retornar o vencedor
+            return quadro[0][2]; 
         }
 
         // Verificar se todas as posições do tabuleiro estão preenchidas (empate)
@@ -87,7 +90,7 @@ export default function Gameboard() {
 
         return null; // Nenhum vencedor encontrado
     };
-    
+
     const imprimirTabuleiro = function () {
         console.log('Tabuleiro atual:');
         for (let i = 0; i < linha; i++) {
@@ -101,11 +104,3 @@ export default function Gameboard() {
 
     return { jogar, quadro, };
 }
-
-// const game = Gameboard();
-// console.log(game.jogar(0, 1)); // X
-// console.log(game.jogar(0, 2)); // O
-// console.log(game.jogar(1, 1)); // X
-// console.log(game.jogar(1, 2)); // O
-// console.log(game.jogar(2, 0)); // X - Vencedor
-// console.log(game.jogar(2, 2)); // X - Vencedor

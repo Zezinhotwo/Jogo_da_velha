@@ -4,73 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-      }
-      body {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        justify-content: space-around;
-        flex-direction: column;
-      }
-      .tabu {
-        height: 80%;
-        width: 50%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-      }
-      .i {
-        border: 1px solid black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .i:hover{
-        background-color: rgb(190, 184, 184);
-        transition: 300ms;
-      }
-     
-      .bola::after {
-        position: absolute;
-        font-size: 8em;
-        content: "\1F535";
-      }
-      
-      .xis::after {
-        position: absolute;
-        margin: auto;
-        content: "\274c"; /* use the hex value here... */
-        font-size: 8em;
-      }
-      button {
-        height: 3em;
-        width: 10em;
-        border: .5px solid black;
-        border-radius: 20px;
-        font-size: 1em;
-        font-weight:bolder;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="tabu">
-      <div data-linha="0" data-coluna="0" class="i"></div>
-      <div data-linha="0" data-coluna="1" class="i"></div>
-      <div data-linha="0" data-coluna="2" class="i"></div>
-      <div data-linha="1" data-coluna="0" class="i"></div>
-      <div data-linha="1" data-coluna="1" class="i"></div>
-      <div data-linha="1" data-coluna="2" class="i"></div>
-      <div data-linha="2" data-coluna="0" class="i"></div>
-      <div data-linha="2" data-coluna="1" class="i"></div>
-      <div data-linha="2" data-coluna="2" class="i"></div>
+    <div class="ganhador">
+      <h1>Resultado</h1>
+      <span class="resu"></span>
     </div>
-    <button>reset</button>
+    <div class="game">
+      <div class="tabu">
+        <div data-linha="0" data-coluna="0" class="i"></div>
+        <div data-linha="0" data-coluna="1" class="i"></div>
+        <div data-linha="0" data-coluna="2" class="i"></div>
+        <div data-linha="1" data-coluna="0" class="i"></div>
+        <div data-linha="1" data-coluna="1" class="i"></div>
+        <div data-linha="1" data-coluna="2" class="i"></div>
+        <div data-linha="2" data-coluna="0" class="i"></div>
+        <div data-linha="2" data-coluna="1" class="i"></div>
+        <div data-linha="2" data-coluna="2" class="i"></div>
+      </div>
+      <button>reset</button>
+    </div>
 
     <script type="module" src="domManipulation.js"></script>
   </body>
